@@ -4,6 +4,6 @@ Los cerros orientales de Bogotá son una zona de gran importancia ecológica y a
 
 A partir de lo anterior, se propone desarrollar un prototipo funcional de un sistema IoT para monitorizar y detectar en tiempo real la presencia de incendios en los cerros orientales de Bogotá. El sistema debe ser capaz de notificar in situ a las autoridades locales en caso de detectar un incendio.
 
-#Diseño
+# Diseño
 
 Se propone utilizar un Sistema Embebido como la ESP32 utilizando sensores de temperatura, humo, llama y gases como el Monóxido de Carbono o el Dióxido de Carbono para realizar la apropiada identificación en casos de incendio. Por otro lado, para emitir la alarma de incendio se utilizaran de actuadores un LED RGB que indican el nivel de peligro según la temperatura, una pantalla LCD la cual mostrara el nivel de emergencia y además una chicharra que emitira una alarma en caso de incendio. A continuación se mostrara el diseño planteado (por revisar)
