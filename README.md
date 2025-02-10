@@ -1,1 +1,9 @@
-# estesi
+# Contextualización del reto:    
+
+Los cerros orientales de Bogotá son una zona de gran importancia ecológica y ambiental. Sin embargo, debido a factores como la sequía y la actividad humana, estos cerros son susceptibles a incendios forestales. La detección temprana de incendios es fundamental para minimizar daños y proteger tanto el medio ambiente como las comunidades cercanas. En los últimos años, los incendios forestales en los cerros orientales han sido una preocupación creciente. Las temperaturas medias anuales en esta zona varían desde los 8.4°C a los 13°C. Un aumento repentino y significativo en la temperatura, por ejemplo, un incremento de 5°C en un corto período de tiempo puede indicar la presencia de un incendio. Además, la detección de partículas de humo o llama y la presencia de gases como el monóxido de carbono (CO) y el dióxido de carbono (CO₂) son indicadores clave de combustión. En recientes incendios, se han observado columnas de humo y llamas visibles desde varios sectores de la ciudad, y se han generado emisiones significativas de estos gases. 
+
+A partir de lo anterior, se propone desarrollar un prototipo funcional de un sistema IoT para monitorizar y detectar en tiempo real la presencia de incendios en los cerros orientales de Bogotá. El sistema debe ser capaz de notificar in situ a las autoridades locales en caso de detectar un incendio.
+
+#Diseño
+
+Se propone utilizar un Sistema Embebido como la ESP32 utilizando sensores de temperatura, humo, llama y gases como el Monóxido de Carbono o el Dióxido de Carbono para realizar la apropiada identificación en casos de incendio. Por otro lado, para emitir la alarma de incendio se utilizaran de actuadores un LED RGB que indican el nivel de peligro según la temperatura, una pantalla LCD la cual mostrara el nivel de emergencia y además una chicharra que emitira una alarma en caso de incendio. A continuación se mostrara el diseño planteado (por revisar)
