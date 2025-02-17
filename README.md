@@ -7,3 +7,8 @@ A partir de lo anterior, se propone desarrollar un prototipo funcional de un sis
 # Diseño
 
 Se propone utilizar un Sistema Embebido como la ESP32 utilizando sensores de temperatura, humo, llama y gases como el Monóxido de Carbono o el Dióxido de Carbono para realizar la apropiada identificación en casos de incendio. Por otro lado, para emitir la alarma de incendio se utilizaran de actuadores un LED RGB que indican el nivel de peligro según la temperatura, una pantalla LCD la cual mostrara el nivel de emergencia y además una chicharra que emitira una alarma en caso de incendio. A continuación se mostrara el diseño planteado (por revisar)
+
+# Autoevaluación del protocolo de pruebas
+Dentro del protocolo de pruebas se midieron 2 variables, los gases inflamables presentes en el entorno con ayuda del sensor MQ2, el cual es capaz de detectar concentración de sustancias como el butano y el propano. Además, también se midió la temperatura, en este caso en grados centígrados. 
+Dentro de las pruebas realizadas se tomó en cuenta distintos escenarios, como el aumento repentino de la temperatura leída por el sensor, y el incremento de gases que sobrepasaran la barrera definida. El aumento de temperatura se probó tanto con el encendido de un mechero como soplándole directamente al sensor, lo cual presentó algunos problemas debido a que en ocasiones reconocía bien el aumento de la temperatura y en otras no. Mientras, para la prueba del MQ2 funcionó perfectamente al detectar el aumento de los gases que se generaron con ayuda del encendedor, accionando correctamente los actuadores establecidos.
+
