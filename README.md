@@ -16,6 +16,7 @@ Dentro de las pruebas realizadas se tomó en cuenta distintos escenarios, como e
 
 ![image](https://github.com/user-attachments/assets/e8ba4dae-970f-4587-ba13-0aa24b34fe82)
 Figura 1: Foto del montaje
+
 ![image](https://github.com/user-attachments/assets/40657e7e-5e57-4167-808d-fa871ef870e3)
 Figura 2: Foto del montaje
 
