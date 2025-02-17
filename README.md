@@ -14,8 +14,9 @@ Dentro de las pruebas realizadas se tomó en cuenta distintos escenarios, como e
 
 # Configuración experimental, resultados y análisis.
 
-![image](https://github.com/user-attachments/assets/620a8495-b475-442a-83e8-d41d392025ed)
-![image](https://github.com/user-attachments/assets/c58155ee-65e1-460f-864f-92b64e111d49)
+![image](https://github.com/user-attachments/assets/e8ba4dae-970f-4587-ba13-0aa24b34fe82)
+![image](https://github.com/user-attachments/assets/40657e7e-5e57-4167-808d-fa871ef870e3)
+
 
 Para llevar a cabo la correcta identificación de incendios se hizo uso de:
 
@@ -26,6 +27,6 @@ Para llevar a cabo la correcta identificación de incendios se hizo uso de:
 - Sensorde gases combustibles y humo(MQ-2)
 - Sensor de termperatura (ds18b20)
 
-El color del LED indica el nivel de peligro en la zona, variando entre Verde ( no presencia de gases y sin aumentos de temperatura drásticos ), amarillo (no presencia de gases pero aumento de temperatura) y rojo (Presencia de gases combustibles en la zona). Por otro lado, la pantalla LCD se encarga de mostrar la temperatura que se registra cada segundo y el nivel de alerta asociado a los colores del LED-RGB con amarillo- Aumento de temp. y rojo - ¡PELIGRO!. Además, el sistema al entrar en estado de peligro activa el buzzer emitiendo una señal de alarma.
+El color del LED indica el nivel de peligro en la zona, variando entre verde ( no presencia de gases y sin aumentos de temperatura drásticos ), amarillo (no presencia de gases pero aumento de temperatura) y rojo (Presencia de gases combustibles en la zona). Por otro lado, la pantalla LCD se encarga de mostrar la temperatura que se registra cada segundo y el nivel de alerta asociado a los colores del LED-RGB con amarillo- Aumento de temp. y rojo - ¡PELIGRO!. Además, el sistema al entrar en estado de peligro activa el buzzer emitiendo una señal de alarma.
 
 Con la realización del laboratorio se evidencia cómo los dispositivos IoT pueden proporcionarnos una ayuda para evitar problemas que requieren de acción inmediata, como por ejemplo, la aparición de incendios forestales en los cerros orientales de Bogotá. No solo nos permiten una identificación y medición de variables de interés temprana sino también mecanismos de acción para mitigar el impacto de dichos eventos. 
