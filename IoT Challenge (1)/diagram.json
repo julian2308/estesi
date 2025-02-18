@@ -1,0 +1,59 @@
+{
+  "version": 1,
+  "author": "Anonymous maker",
+  "editor": "wokwi",
+  "parts": [
+    { "type": "board-esp32-devkit-c-v4", "id": "esp", "top": -76.8, "left": 43.24, "attrs": {} },
+    {
+      "type": "wokwi-lcd1602",
+      "id": "lcd1",
+      "top": 35.2,
+      "left": 332,
+      "attrs": { "pins": "i2c" }
+    },
+    { "type": "wokwi-ds18b20", "id": "ds18b20", "top": -50, "left": 100, "attrs": {} },
+    { "type": "board-ds18b20", "id": "temp1", "top": -106.73, "left": 176.88, "attrs": {} },
+    { "type": "wokwi-buzzer", "id": "bz1", "top": 60, "left": -75, "attrs": { "volume": "0.1" } },
+    {
+      "type": "wokwi-breadboard",
+      "id": "protoboard",
+      "top": 237,
+      "left": 31.6,
+      "attrs": { "rows": "30", "cols": "10" }
+    },
+    { "type": "chip-mq-2", "id": "chip1", "top": 173.82, "left": 244.8, "attrs": {} },
+    { "type": "wokwi-rgb-led", "id": "rgb1", "top": -82.4, "left": -94.9, "attrs": {} }
+  ],
+  "connections": [
+    [ "esp:TX", "$serialMonitor:RX", "gray", [ "h50", "v-30", "h-50" ] ],
+    [ "esp:RX", "$serialMonitor:TX", "gray", [ "h50", "v-30", "h-50" ] ],
+    [ "esp:3V3", "protoboard:1.1", "red", [ "h-40", "v-40" ] ],
+    [ "esp:GND.1", "protoboard:1.2", "black", [ "h-40", "v-20" ] ],
+    [ "lcd1:VCC", "protoboard:1.1", "red", [ "h-60", "v-60" ] ],
+    [ "lcd1:GND", "protoboard:1.2", "black", [ "h-60", "v-40" ] ],
+    [ "lcd1:SCL", "esp:D22", "green", [ "h-124.8", "v-66.9" ] ],
+    [ "lcd1:SDA", "esp:D21", "green", [ "h-134.4", "v-28.6" ] ],
+    [ "temp1:DQ", "esp:4", "cyan", [ "h-19.2", "v124.8" ] ],
+    [ "temp1:VCC", "protoboard:1.1", "red", [ "h-60", "v100", "h60" ] ],
+    [ "temp1:GND", "protoboard:1.2", "black", [ "h-60", "v100", "h60" ] ],
+    [ "bz1:2", "protoboard:1.2", "black", [ "h-40", "v90", "h40" ] ],
+    [ "esp:GND.1", "protoboard:tn.1", "black", [ "h-28.65", "v182.4", "h-9.6" ] ],
+    [ "lcd1:GND", "protoboard:tn.15", "black", [ "h-28.8" ] ],
+    [ "temp1:GND", "protoboard:tn.14", "black", [ "v9.6", "h9.6" ] ],
+    [ "esp:13", "bz1:2", "orange", [ "v28.8", "h-85.85" ] ],
+    [ "bz1:1", "protoboard:tn.2", "black", [ "v105.6", "h134.4" ] ],
+    [ "esp:3V3", "protoboard:tp.1", "orange", [ "h-38.25", "v297.6" ] ],
+    [ "temp1:VCC", "protoboard:tp.13", "orange", [ "v288", "h9.6" ] ],
+    [ "lcd1:SCL", "esp:22", "cyan", [ "h-86.4", "v-124.5" ] ],
+    [ "lcd1:SDA", "esp:21", "cyan", [ "h-96", "v-86.2" ] ],
+    [ "esp:5V", "lcd1:VCC", "orange", [ "h0.15", "v19.2", "h163.2", "v-67.2" ] ],
+    [ "esp:34", "chip1:AO", "cyan", [ "h-19.05", "v220.8" ] ],
+    [ "chip1:VCC", "protoboard:tp.11", "orange", [ "h-67.2" ] ],
+    [ "chip1:GND", "protoboard:tn.13", "black", [ "h-38.4", "v9.6" ] ],
+    [ "rgb1:R", "esp:25", "red", [ "v0" ] ],
+    [ "rgb1:G", "esp:26", "green", [ "v0" ] ],
+    [ "rgb1:B", "esp:27", "blue", [ "v0" ] ],
+    [ "rgb1:COM", "protoboard:tp.2", "orange", [ "v0" ] ]
+  ],
+  "dependencies": {}
+}
