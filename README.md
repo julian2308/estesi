@@ -90,7 +90,19 @@ La visualización de los datos se realiza mediante una pantalla LCD, que muestra
 ## Diagrma de Actividad UML
 <img width="468" alt="image" src="https://github.com/user-attachments/assets/3401ac5c-741a-4d87-81ac-e4b82f0895c1" />
 
+## Simulación en Wokwi
 
+La carpeta `/IoT Challenge (1)` contiene los archivos necesarios para la simulación del proyecto en Wokwi. A continuación, se describe brevemente el contenido de cada archivo y subcarpeta:
+
+- Configuración del circuito en Wokwi (diagram.json)
+- Código principal de Arduino/ESP32 (sketch.ino)
+- **custom-chips/**: Carpeta que contiene definiciones y lógica personalizada para chips específicos utilizados en el proyecto.
+  - **mq-2.chip/**: Subcarpeta que contiene los archivos relacionados con el sensor MQ-2.
+    - Definición del MQ-2 (pines y controles) (mq-2.chip.json)
+    - Lógica del chip en C (mq-2.chip.c)
+
+## Esquematico y Conexiones de Hardware en Wokwi
+<img width="468" alt="image" src="https://github.com/user-attachments/assets/61ca2c58-59bb-4155-bd72-15384eb7f414" />
 
 
 
