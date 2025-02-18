@@ -34,7 +34,7 @@ La documentación de este proyecto se estructura de la siguiente manera:
 ## Restricciones de Diseño
 
 ### Restricciones Técnicas
-La selección de componentes se basa en la disponibilidad local (entregados y disponibles en el kit) y la compatibilidad con el microcontrolador ESP32. Se utilizarán sensores de temperatura (DS18B20) y de gases (MQ-2), así como actuadores como el buzzer y el LED RGB. Dado que en los cerros orientales puede haber áreas con acceso limitado a la red eléctrica y de comunicaciones, el sistema debe ser eficiente en el consumo de energía y capaz de operar de manera autónoma con baterías o paneles solares. Sin embargo, el prototipo estará restringido a funcionar conectado al voltaje de una laptop. Además, sin una red de comunicaciones, la notificación efectiva a las autoridades es una restricción que evita una solución óptima para la necesidad.
+La selección de componentes se basa en la disponibilidad local (entregados y disponibles en el kit) y la compatibilidad con el microcontrolador ESP32. Se utilizarán sensores de temperatura (DS18B20) y de gases (MQ-2), así como actuadores como el buzzer y el LED RGB. Dado que en los cerros orientales puede haber áreas con acceso limitado a la red eléctrica y de comunicaciones, el sistema debe ser eficiente en el consumo de energía y capaz de operar de manera autónoma con baterías o paneles solares. Sin embargo, el prototipo estará restringido a funcionar conectado al voltaje de una laptop. Además, sin una red de comunicaciones, la notificación efectiva a las autoridades es una restricción que evita una solución óptima para la necesidad. A nivel del prototípado, el simulador Wokwi (Simulador para la ESP-32), tenia varias restricciones en cuanto a carga y sensores (MQ-2 y LM393)
 
 ### Restricciones Económicas
 El proyecto debe ajustarse a un presupuesto limitado, priorizando componentes de bajo costo y alta disponibilidad. Esto es crucial debido a la cantidad de dispositivos inteligentes que habría que implementar a lo largo de los cerros y la limitación de ser un proyecto universitario.
@@ -86,6 +86,10 @@ La visualización de los datos se realiza mediante una pantalla LCD, que muestra
 ## Diagrama de UML de la Solución y de Cada Módulo Software Desarrollado
 
 <img width="468" alt="image" src="https://github.com/user-attachments/assets/80147838-9a35-49ea-8f04-e1e7dff175f0" />
+
+## Diagrma de Actividad UML
+<img width="468" alt="image" src="https://github.com/user-attachments/assets/3401ac5c-741a-4d87-81ac-e4b82f0895c1" />
+
 
 
 
