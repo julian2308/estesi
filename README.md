@@ -150,16 +150,30 @@ Para una próxima práctica se espera tener una mayor disponibilidad de los impl
 # Referencias 
 
 [1] A. Franco Herrera, "La importancia de proteger a los cerros orientales de Bogotá," El Tiempo, 09-Oct-2018. [Online]. Available: https://www.eltiempo.com/vida/ciencia/la-importancia-de-proteger-a-los-cerros-orientales-de-bogota-279294. 
+
 [2] F. A. Garzón Díaz, "Educación ambiental y desarrollo sostenible: El caso de los cerros orientales de Bogotá, Colombia," Revista Latinoamericana de Bioética, vol. 14, no. 1, pp. 1-15, Jan. 2014. [Online]. Available: http://www.scielo.org.co/scielo.php?script=sci_arttext&pid=S1657-47022014000100007. 
-[4] Observatorio Ambiental de Bogotá, "Correlación espacial entre la Estructura Ecológica Principal y la temperatura media superficial de Bogotá," oab.ambientebogota.gov.co, 2023. [Online]. Available: https://oab.ambientebogota.gov.co/wp-content/uploads/2023/10/Correlacio%CC%81n-espacial-entre-la-Estructura-Ecolo%CC%81gica-Principal-y-la-temperatura-media-superficial-de-Bogota%CC%81.pdf. [Accessed: 17-Feb-2025].
-[5] FlyPix AI, "Detección avanzada de incendios forestales: inteligencia artificial, sensores y prevención," flypix.ai, 09-Feb-2025. [Online]. Available: https://flypix.ai/es/blog/wildfire-detection/. 
-[6] Ministerio de Agricultura y Desarrollo Rural, "Por la cual se aprueba un Acuerdo de la Junta Directiva del Instituto Nacional de los Recursos Naturales Renovables y del Ambiente -INDERENA-," Resolución 076, 31-Mar-1977. [Online]. Available: https://www.alcaldiabogota.gov.co/sisjur/normas/Norma1.jsp?i=22592.
-[7] Corporación Autónoma Regional de Cundinamarca, "Por la cual se adopta el Plan de Manejo Ambiental de la Zona de Reserva Forestal Protectora Bosque Oriental de Bogotá y se establecen otras determinaciones," Resolución 1141, 12-Apr-2006. [Online]. Available: https://www.alcaldiabogota.gov.co/sisjur/normas/Norma1.jsp?i=20128.
-[8] Ministerio de Ambiente, Vivienda y Desarrollo Territorial, "Por medio del cual se redelimita la Reserva Forestal Protectora Bosque Oriental de Bogotá, se adopta su zonificación y reglamentación de usos y se establecen las delimitantes para el ordenamiento y manejo de los Cerros Orientales de Bogotá," Resolución 463, 14-Apr-2005. [Online]. Available: https://www.minambiente.gov.co/documento-entidad/resolucion-463-de-2005/.
-[9] Pololu, "MQ-2 Semiconductor Sensor for Combustible Gas," 2025. [Online]. Available: https://www.pololu.com/file/0J309/MQ2.pdf.
-[10] Analog Devices, "DS18B20 - Programmable Resolution 1-Wire Digital Thermometer," 2019. [Online]. Available: https://www.analog.com/media/en/technical-documentation/data-sheets/DS18B20.pdf.
-[11] Texas Instruments, "LM393B, LM2903B, LM193, LM293, LM393 and LM2903 Dual Comparators," 2025. [Online]. Available: https://www.ti.com/lit/ds/symlink/lm393.pdf.
-[12] Components101, "Buzzer Pinout, Working, Specifications & Datasheet," 2017. [Online]. Available: https://components101.com/misc/buzzer-pinout-working-datasheet.
-[13] Components101, "RGB LED Pinout, Features, Circuit & Datasheet," 2018. [Online]. Available: https://components101.com/diodes/rgb-led-pinout-configuration-circuit-datasheet.
-[14] Circuit Digest, "16x2 LCD Display Module - Pinout & Datasheet," 2025. [Online]. Available
+
+[3] Observatorio Ambiental de Bogotá, "Correlación espacial entre la Estructura Ecológica Principal y la temperatura media superficial de Bogotá," oab.ambientebogota.gov.co, 2023. [Online]. Available: https://oab.ambientebogota.gov.co/wp-content/uploads/2023/10/Correlacio%CC%81n-espacial-entre-la-Estructura-Ecolo%CC%81gica-Principal-y-la-temperatura-media-superficial-de-Bogota%CC%81.pdf. 
+
+[4] FlyPix AI, "Detección avanzada de incendios forestales: inteligencia artificial, sensores y prevención," flypix.ai, 09-Feb-2025. [Online]. Available: https://flypix.ai/es/blog/wildfire-detection/. 
+
+[5] Ministerio de Agricultura y Desarrollo Rural, "Por la cual se aprueba un Acuerdo de la Junta Directiva del Instituto Nacional de los Recursos Naturales Renovables y del Ambiente -INDERENA-," Resolución 076, 31-Mar-1977. [Online]. Available: https://www.alcaldiabogota.gov.co/sisjur/normas/Norma1.jsp?i=22592.
+
+[6] Corporación Autónoma Regional de Cundinamarca, "Por la cual se adopta el Plan de Manejo Ambiental de la Zona de Reserva Forestal Protectora Bosque Oriental de Bogotá y se establecen otras determinaciones," Resolución 1141, 12-Apr-2006. [Online]. Available: https://www.alcaldiabogota.gov.co/sisjur/normas/Norma1.jsp?i=20128.
+
+[7] Ministerio de Ambiente, Vivienda y Desarrollo Territorial, "Por medio del cual se redelimita la Reserva Forestal Protectora Bosque Oriental de Bogotá, se adopta su zonificación y reglamentación de usos y se establecen las delimitantes para el ordenamiento y manejo de los Cerros Orientales de Bogotá," Resolución 463, 14-Apr-2005. [Online]. Available: https://www.minambiente.gov.co/documento-entidad/resolucion-463-de-2005/.
+
+[8] Pololu, "MQ-2 Semiconductor Sensor for Combustible Gas," 2025. [Online]. Available: https://www.pololu.com/file/0J309/MQ2.pdf.
+
+[9] Analog Devices, "DS18B20 - Programmable Resolution 1-Wire Digital Thermometer," 2019. [Online]. Available: https://www.analog.com/media/en/technical-documentation/data-sheets/DS18B20.pdf.
+
+[10] Texas Instruments, "LM393B, LM2903B, LM193, LM293, LM393 and LM2903 Dual Comparators," 2025. [Online]. Available: https://www.ti.com/lit/ds/symlink/lm393.pdf.
+
+[11] Components101, "Buzzer Pinout, Working, Specifications & Datasheet," 2017. [Online]. Available: https://components101.com/misc/buzzer-pinout-working-datasheet.
+
+[12] Components101, "RGB LED Pinout, Features, Circuit & Datasheet," 2018. [Online]. Available: https://components101.com/diodes/rgb-led-pinout-configuration-circuit-datasheet.
+
+[13] Circuit Digest, "16x2 LCD Display Module - Pinout & Datasheet," 2025. [Online]. Available
+
+[15] Wokwi, "MQ-2 Gas Sensor," Wokwi Projects, 2025. [Online]. Available: https://wokwi.com/projects/403412199957957633.
 
