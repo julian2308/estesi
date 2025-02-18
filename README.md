@@ -61,8 +61,12 @@ Se propone utilizar un Sistema Embebido como la ESP32 utilizando sensores de tem
 ### Hardware
 <img width="468" alt="image" src="https://github.com/user-attachments/assets/36086f94-e6a8-4206-ba02-f1a6913d0d03" />
 
+Figura 1. Diseño de Arquitectura de Hardware del Detector de Incendios.
+
 ### Software
 <img width="468" alt="image" src="https://github.com/user-attachments/assets/c1756fbc-5960-4e40-880d-2a693fc56872" />
+
+Figura 2. Diseño de Arquitectura de Software del Detector de Incendios.
 
 ## Desarrollo Teórico Modular
 
@@ -83,12 +87,16 @@ Para las alarmas visuales y sonoras, se ha optado por utilizar un buzzer y un LE
 **Visualización de Datos**:
 La visualización de los datos se realiza mediante una pantalla LCD, que muestra la temperatura en tiempo real y mensajes de alerta. La pantalla LCD es controlada por el ESP32 y se actualiza continuamente con los datos de los sensores, proporcionando información clara y precisa sobre las condiciones ambientales.
 
-## Diagrama de UML de la Solución y de Cada Módulo Software Desarrollado
+## Diagrama de UML
 
 <img width="468" alt="image" src="https://github.com/user-attachments/assets/80147838-9a35-49ea-8f04-e1e7dff175f0" />
 
+Figura 3. Diagrama de UML de la Solución y de Cada Módulo Software Desarrollado del Detector de Incendios.
+
 ## Diagrma de Actividad UML
 <img width="468" alt="image" src="https://github.com/user-attachments/assets/3401ac5c-741a-4d87-81ac-e4b82f0895c1" />
+
+Figura 4. Diagrama de Actividad UML para los Procesos del Detector de Incendios.
 
 ## Simulación en Wokwi
 
@@ -113,10 +121,10 @@ Dentro de las pruebas realizadas se tomó en cuenta distintos escenarios, como e
 # Configuración experimental, resultados y análisis.
 
 ![image](https://github.com/user-attachments/assets/e8ba4dae-970f-4587-ba13-0aa24b34fe82)
-Figura 1: Foto del montaje
+Figura 5: Foto del montaje del Detector de Incendios.
 
 ![image](https://github.com/user-attachments/assets/40657e7e-5e57-4167-808d-fa871ef870e3)
-Figura 2: Foto del montaje
+Figura 6: Foto del montaje del Detector de Incendios.
 
 Para llevar a cabo la correcta identificación de incendios se hizo uso de:
 
