@@ -4,6 +4,30 @@ Los cerros orientales de Bogotá son una zona de gran importancia ecológica y a
 
 A partir de lo anterior, se propone desarrollar un prototipo funcional de un sistema IoT para monitorizar y detectar en tiempo real la presencia de incendios en los cerros orientales de Bogotá. El sistema debe ser capaz de notificar in situ a las autoridades locales en caso de detectar un incendio.
 
+# Solución Propuesta
+
+## Restricciones de Diseño Identificadas
+
+### Restricciones Técnicas
+La selección de componentes se basa en la disponibilidad local (entregados y disponibles en el kit) y la compatibilidad con el microcontrolador ESP32. Se utilizarán sensores de temperatura (DS18B20) y de gases (MQ-2), así como actuadores como el buzzer y el LED RGB. Dado que en los cerros orientales puede haber áreas con acceso limitado a la red eléctrica y de comunicaciones, el sistema debe ser eficiente en el consumo de energía y capaz de operar de manera autónoma con baterías o paneles solares. Sin embargo, el prototipo estará restringido a funcionar conectado al voltaje de una laptop. Además, sin una red de comunicaciones, la notificación efectiva a las autoridades es una restricción que evita una solución óptima para la necesidad.
+
+### Restricciones Económicas
+El proyecto debe ajustarse a un presupuesto limitado, priorizando componentes de bajo costo y alta disponibilidad. Esto es crucial debido a la cantidad de dispositivos inteligentes que habría que implementar a lo largo de los cerros y la limitación de ser un proyecto universitario.
+
+### Restricciones Regulatorias
+Los cerros orientales de Bogotá están protegidos bajo la Resolución 076 de 1977 del Ministerio de Agricultura y la Resolución 1141 de 2006 de la Corporación Autónoma Regional de Cundinamarca (CAR). Estas normativas establecen restricciones sobre el uso del suelo y la conservación de la flora y fauna, lo que implica que cualquier instalación debe minimizar el impacto ambiental. Además, la Resolución 463 de 2005 del Ministerio de Ambiente, Vivienda y Desarrollo Territorial establece la zonificación y reglamentación de usos en los cerros orientales, incluyendo áreas de recuperación ambiental y zonas de ocupación pública prioritaria, donde se deben seguir estrictas directrices para la instalación de cualquier infraestructura.
+
+### Restricciones de Espacio
+Los dispositivos deben ser instalados en ubicaciones estratégicas que maximicen la cobertura de monitoreo sin interferir con el ecosistema local. Esto implica un diseño compacto y discreto para minimizar el impacto visual y físico. Las ubicaciones seleccionadas deben ser accesibles para el mantenimiento y la supervisión periódica, considerando la topografía y las condiciones del terreno. Además, estos dispositivos tendrán que soportar las condiciones ambientales y climáticas del terreno.
+
+### Restricciones de Escalabilidad
+El diseño debe permitir la adición de más sensores y actuadores en el futuro sin requerir una reestructuración completa del sistema. Esto asegura que el sistema pueda expandirse para cubrir áreas adicionales o incorporar nuevas tecnologías. Además, el sistema debe ser compatible con otros dispositivos y plataformas de monitoreo ambiental, facilitando la integración con sistemas existentes y futuros. Debido a las restricciones técnicas mencionadas anteriormente, este proyecto tiene una restricción de estabilidad que impide mejorar a una solución óptima.
+
+### Restricciones Temporales
+El proyecto debe estar completamente implementado y funcional para la fecha de presentación (18/02/25). Esto requiere una planificación detallada y una ejecución eficiente de todas las etapas del proyecto. Se debe reservar tiempo suficiente para realizar pruebas exhaustivas y validar el funcionamiento del sistema en condiciones reales, asegurando que cumple con los requisitos y restricciones establecidos.
+
+Con estas restricciones claramente definidas, podemos proceder a detallar la arquitectura propuesta, los diagramas y los estándares de diseño aplicados.
+
 # Diseño
 
 Se propone utilizar un Sistema Embebido como la ESP32 utilizando sensores de temperatura, humo, llama y gases como el Monóxido de Carbono o el Dióxido de Carbono para realizar la apropiada identificación en casos de incendio.Por otro lado, para emitir la alarma de incendio se utilizaran de actuadores un LED RGB que indican el nivel de peligro según el aumento de temperatura o la presencia de gases combustibles, una pantalla LCD la cual mostrara el nivel de emergencia y además una buzzer pasivo que emitira una alarma en caso de incendio. A continuación se mostrara el diseño planteado:
