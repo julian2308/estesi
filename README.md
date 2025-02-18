@@ -48,7 +48,40 @@ Con estas restricciones claramente definidas, podemos proceder a detallar la arq
 
 # Diseño
 
-Se propone utilizar un Sistema Embebido como la ESP32 utilizando sensores de temperatura, humo, llama y gases como el Monóxido de Carbono o el Dióxido de Carbono para realizar la apropiada identificación en casos de incendio.Por otro lado, para emitir la alarma de incendio se utilizaran de actuadores un LED RGB que indican el nivel de peligro según el aumento de temperatura o la presencia de gases combustibles, una pantalla LCD la cual mostrara el nivel de emergencia y además una buzzer pasivo que emitira una alarma en caso de incendio. A continuación se mostrara el diseño planteado:
+Se propone utilizar un Sistema Embebido como la ESP32 utilizando sensores de temperatura, humo, llama y gases como el Monóxido de Carbono o el Dióxido de Carbono para realizar la apropiada identificación en casos de incendio.Por otro lado, para emitir la alarma de incendio se utilizaran de actuadores un LED RGB que indican el nivel de peligro según el aumento de temperatura o la presencia de gases combustibles, una pantalla LCD la cual mostrara el nivel de emergencia y además una buzzer pasivo que emitira una alarma en caso de incendio. A continuación se mostrara el diseño planteado:  
+
+## Arquitectura 
+### Hardware
+<img width="468" alt="image" src="https://github.com/user-attachments/assets/36086f94-e6a8-4206-ba02-f1a6913d0d03" />
+
+### Software
+<img width="468" alt="image" src="https://github.com/user-attachments/assets/c1756fbc-5960-4e40-880d-2a693fc56872" />
+
+## Desarrollo Teórico Modular
+
+### Criterios de Diseño Establecidos
+
+**Detección de Gases**:
+Para la detección de gases, se ha seleccionado el sensor MQ-2 debido a su capacidad para identificar una variedad de gases, incluyendo el monóxido de carbono (CO) y el dióxido de carbono (CO₂), que son indicadores clave de combustión. Este sensor es económico y ampliamente disponible, lo que lo hace ideal para el proyecto. Se ha establecido un umbral de detección basado en pruebas preliminares y datos de referencia. Un valor de lectura superior a 600 indica la presencia de gases en niveles que podrían sugerir un incendio.
+
+**Detección de Temperatura**:
+La medición de la temperatura ambiente se realiza mediante el sensor DS18B20, seleccionado por su precisión y facilidad de uso. Este sensor proporciona lecturas de temperatura con una precisión de ±0.5°C. Se ha definido un umbral de incremento de temperatura de 5°C en un corto período de tiempo como indicador de un posible incendio. Este umbral se basa en la variabilidad normal de la temperatura en los cerros orientales y en la necesidad de detectar incrementos significativos que puedan sugerir la presencia de fuego.
+
+**Detección de Llamas**:
+Para la detección de llamas, se ha incorporado el sensor de llama LM393. Este sensor es capaz de detectar la presencia de llamas mediante la captura de la radiación infrarroja emitida por el fuego. Se ha configurado el sensor para que detecte llamas cuando la salida digital es baja (valor 0), lo que indica la presencia de fuego.
+
+**Alarmas Visuales y Sonoras**:
+Para las alarmas visuales y sonoras, se ha optado por utilizar un buzzer y un LED RGB. El buzzer emite una alarma sonora en caso de detección de incendio, siendo controlado por el ESP32 y activado cuando se detecta un incremento significativo en la temperatura, la presencia de gases o llamas. El LED RGB proporciona una señal visual de alerta, cambiando de color según las condiciones detectadas: rojo para la presencia de gases o llamas, amarillo para un incremento de temperatura y verde para condiciones normales.
+
+**Visualización de Datos**:
+La visualización de los datos se realiza mediante una pantalla LCD, que muestra la temperatura en tiempo real y mensajes de alerta. La pantalla LCD es controlada por el ESP32 y se actualiza continuamente con los datos de los sensores, proporcionando información clara y precisa sobre las condiciones ambientales.
+
+## Diagrama de UML de la Solución y de Cada Módulo Software Desarrollado
+
+<img width="468" alt="image" src="https://github.com/user-attachments/assets/80147838-9a35-49ea-8f04-e1e7dff175f0" />
+
+
+
 
 # Autoevaluación del protocolo de pruebas
 Dentro del protocolo de pruebas se midieron 2 variables, los gases inflamables presentes en el entorno con ayuda del sensor MQ2, el cual es capaz de detectar concentración de sustancias como el butano y el propano. Además, también se midió la temperatura, en este caso en grados centígrados. 
