@@ -1,12 +1,30 @@
-# Contextualización del reto:    
 
-Los cerros orientales de Bogotá son una zona de gran importancia ecológica y ambiental. Sin embargo, debido a factores como la sequía y la actividad humana, estos cerros son susceptibles a incendios forestales. La detección temprana de incendios es fundamental para minimizar daños y proteger tanto el medio ambiente como las comunidades cercanas. En los últimos años, los incendios forestales en los cerros orientales han sido una preocupación creciente. Las temperaturas medias anuales en esta zona varían desde los 8.4°C a los 13°C. Un aumento repentino y significativo en la temperatura, por ejemplo, un incremento de 5°C en un corto período de tiempo puede indicar la presencia de un incendio. Además, la detección de partículas de humo o llama y la presencia de gases como el monóxido de carbono (CO) y el dióxido de carbono (CO₂) son indicadores clave de combustión. En recientes incendios, se han observado columnas de humo y llamas visibles desde varios sectores de la ciudad, y se han generado emisiones significativas de estos gases. 
+# Introducción
 
-A partir de lo anterior, se propone desarrollar un prototipo funcional de un sistema IoT para monitorizar y detectar en tiempo real la presencia de incendios en los cerros orientales de Bogotá. El sistema debe ser capaz de notificar in situ a las autoridades locales en caso de detectar un incendio.
+### Resumen General
+Los cerros orientales de Bogotá son una zona de gran importancia ecológica y ambiental. Sin embargo, debido a factores como la sequía y la actividad humana, estos cerros son susceptibles a incendios forestales. La detección temprana de incendios es fundamental para minimizar daños y proteger tanto el medio ambiente como las comunidades cercanas. En los últimos años, los incendios forestales en los cerros orientales han sido una preocupación creciente. Las temperaturas medias anuales en esta zona varían desde los 8.4°C a los 13°C. Un aumento repentino y significativo en la temperatura, por ejemplo, un incremento de 5°C en un corto período de tiempo puede indicar la presencia de un incendio. Además, la detección de partículas de humo o llama y la presencia de gases como el monóxido de carbono (CO) y el dióxido de carbono (CO₂) son indicadores clave de combustión. En recientes incendios, se han observado columnas de humo y llamas visibles desde varios sectores de la ciudad, y se han generado emisiones significativas de estos gases.
+
+### Motivación
+La creciente incidencia de incendios forestales en los cerros orientales de Bogotá representa una amenaza significativa para el ecosistema local y las comunidades cercanas. La necesidad de un sistema de detección temprana es imperativa para mitigar los daños y proteger tanto la biodiversidad como la salud pública. Este proyecto busca desarrollar una solución tecnológica que permita la monitorización y detección en tiempo real de incendios, proporcionando una respuesta rápida y efectiva.
+
+### Justificación
+La implementación de un sistema IoT para la detección temprana de incendios en los cerros orientales de Bogotá es crucial debido a la vulnerabilidad de esta área a los incendios forestales. La capacidad de detectar y notificar la presencia de incendios de manera oportuna puede reducir significativamente los daños ambientales y económicos, así como proteger la vida humana y la fauna local. Además, este proyecto puede servir como modelo para otras regiones con problemas similares, promoviendo el uso de tecnologías avanzadas en la gestión de desastres naturales.
+
+### Estructura de la Documentación
+La documentación de este proyecto se estructura de la siguiente manera:
+
+1. **Introducción**: Resumen general, motivación, justificación y estructura de la documentación.
+2. **Solución Propuesta**: Descripción detallada de las restricciones de diseño identificadas, la arquitectura propuesta, el desarrollo teórico modular, los diagramas UML de la solución y de cada módulo software desarrollado, el esquemático de hardware diseñado y los estándares de diseño de ingeniería aplicados.
+3. **Configuración Experimental, Resultados y Análisis**: Descripción de la configuración experimental, presentación de los resultados obtenidos y análisis de los mismos.
+4. **Autoevaluación del Protocolo de Pruebas**: Evaluación del protocolo de pruebas utilizado para validar el funcionamiento del sistema.
+5. **Conclusiones, Retos y Trabajo Futuro**: Conclusiones del proyecto, retos presentados durante el desarrollo y posibles mejoras y trabajos futuros.
+6. **Anexos**: Código fuente completamente documentado, esquemáticos y material complementario.
+7. **Video Demostrativo**: Enlace a un video demostrativo y explicativo de la etapa de validación del prototipo funcional.
+
 
 # Solución Propuesta
 
-## Restricciones de Diseño Identificadas
+## Restricciones de Diseño
 
 ### Restricciones Técnicas
 La selección de componentes se basa en la disponibilidad local (entregados y disponibles en el kit) y la compatibilidad con el microcontrolador ESP32. Se utilizarán sensores de temperatura (DS18B20) y de gases (MQ-2), así como actuadores como el buzzer y el LED RGB. Dado que en los cerros orientales puede haber áreas con acceso limitado a la red eléctrica y de comunicaciones, el sistema debe ser eficiente en el consumo de energía y capaz de operar de manera autónoma con baterías o paneles solares. Sin embargo, el prototipo estará restringido a funcionar conectado al voltaje de una laptop. Además, sin una red de comunicaciones, la notificación efectiva a las autoridades es una restricción que evita una solución óptima para la necesidad.
