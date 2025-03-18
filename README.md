@@ -1,21 +1,5 @@
 
-# Introducción
-
-### Resumen General
-
-
-### Motivación
-Los cerros orientales de Bogotá son una zona de gran importancia ecológica y ambiental. Sin embargo, debido a factores como la sequía y la actividad humana, estos cerros son susceptibles a incendios forestales. La detección temprana de incendios es fundamental para minimizar daños y proteger tanto el medio ambiente como las comunidades cercanas. En los últimos años, los incendios forestales en los cerros orientales han sido una preocupación creciente. Las temperaturas medias anuales en esta zona varían desde los 8.4°C a los 13°C. Un aumento repentino y significativo en la temperatura, por ejemplo, un incremento de 5°C en un corto período de tiempo puede indicar la presencia de un incendio. Además, la detección de partículas de humo o llama y la presencia de gases como el monóxido de carbono (CO) y el dióxido de carbono (CO₂) son indicadores clave de combustión. En recientes incendios, se han observado columnas de humo y llamas visibles desde varios sectores de la ciudad, y se han generado emisiones significativas de estos gases.
-
-### Introducción
-Para abordar la problemática de los incendios forestales en los cerros orientales de Bogotá, se desarrolló un prototipo funcional de un sistema IoT para monitorizar y detectar en tiempo real la presencia de incendios. El sistema está diseñado para notificar con alarma, luz y mensajes en pantalla a las autoridades presentes. La solución incluye el uso de un microcontrolador ESP32, sensores de temperatura (DS18B20), de gases (MQ-2) y de llama (LM393), así como actuadores como un buzzer y un LED RGB para alarmas visuales y sonoras. Además, se utiliza una pantalla LCD para la visualización de datos en tiempo real.
-
-El desarrollo del sistema se llevó a cabo utilizando la plataforma de simulación Wokwi, que permitió probar y validar el funcionamiento del prototipo antes de su implementación física. El código desarrollado incluye la lectura de los sensores, el procesamiento de los datos y el control de los actuadores. Se establecieron umbrales específicos para la detección de gases, incrementos de temperatura. La simulación en Wokwi permitió ajustar estos umbrales y asegurar que el sistema respondiera adecuadamente a las condiciones de alarma. Pero no simula totalmente el prototípo, ya que el simulador tiene un limite en su capacidad, entonces se decidio no implementar el sensor de llama (LM393).
-
-El montaje del prototipo se realizó conectando los componentes al microcontrolador ESP32 según el esquemático de hardware diseñado. Los sensores MQ-2, DS18B20 y LM393 se conectaron a los pines correspondientes del ESP32, al igual que el buzzer y el LED RGB. La pantalla LCD se conectó mediante la interfaz I2C. Una vez montado, el sistema fue probado en condiciones controladas para verificar su funcionamiento, pero en la practica la implementación del sensor LM393 fue fallida. El ESP32 lee continuamente los valores de los sensores, procesa los datos y controla los actuadores para emitir alarmas visuales y sonoras en caso de detección de incendios. La pantalla LCD muestra la temperatura en tiempo real y cualquier mensaje de alerta relevante.
-
-### Justificación
-La implementación de un sistema IoT para la detección temprana de incendios en los cerros orientales de Bogotá es crucial debido a la vulnerabilidad de esta área a los incendios forestales. La capacidad de detectar y notificar la presencia de incendios de manera oportuna puede reducir significativamente los daños ambientales y económicos, así como proteger la vida humana y la fauna local. Además, este proyecto puede servir como modelo para otras regiones con problemas similares, promoviendo el uso de tecnologías avanzadas en la gestión de desastres naturales.
+# Challenge #2 (Parte 2)
 
 ### Estructura de la Documentación
 La documentación de este proyecto se estructura de la siguiente manera:
@@ -29,6 +13,22 @@ La documentación de este proyecto se estructura de la siguiente manera:
 7. **Video Demostrativo**: Enlace a un video demostrativo y explicativo de la etapa de validación del prototipo funcional.
 
 
+### Resumen General
+
+### Motivación
+Los cerros orientales de Bogotá son una zona de gran importancia ecológica y ambiental. Sin embargo, debido a factores como la sequía y la actividad humana, estos cerros son susceptibles a incendios forestales. La detección temprana de incendios es fundamental para minimizar daños y proteger tanto el medio ambiente como las comunidades cercanas. En los últimos años, los incendios forestales en los cerros orientales han sido una preocupación creciente. Las temperaturas medias anuales en esta zona varían desde los 8.4°C a los 13°C. Un aumento repentino y significativo en la temperatura, por ejemplo, un incremento de 5°C en un corto período de tiempo puede indicar la presencia de un incendio. Además, la detección de partículas de humo o llama y la presencia de gases como el monóxido de carbono (CO) y el dióxido de carbono (CO₂) son indicadores clave de combustión. En recientes incendios, se han observado columnas de humo y llamas visibles desde varios sectores de la ciudad, y se han generado emisiones significativas de estos gases.
+
+### Introducción
+Para abordar la problemática de los incendios forestales en los cerros orientales de Bogotá, se desarrolló un prototipo funcional de un sistema IoT para monitorizar y detectar en tiempo real la presencia de incendios. El sistema está diseñado para notificar con alarma, luz y mensajes en pantalla a las autoridades presentes. La solución incluye el uso de un microcontrolador ESP32, sensores de temperatura (DS18B20), de gases (MQ-2) y de llama (LM393), así como actuadores como un buzzer y un LED RGB para alarmas visuales y sonoras. Además, para este segundo reto, se incorporó un tablero de control web alojado en un servidor embebido en el ESP32, permitiendo que las autoridades accedan a los datos en tiempo real a través de una conexión WiFi local sin necesidad de internet.
+
+El desarrollo del sistema se llevó a cabo utilizando la plataforma de simulación Wokwi, que permitió probar y validar el funcionamiento del prototipo antes de su implementación física. El código desarrollado incluye la lectura de los sensores, el procesamiento de los datos y el control de los actuadores. Se establecieron umbrales específicos para la detección de gases, incrementos de temperatura. La simulación en Wokwi permitió ajustar estos umbrales y asegurar que el sistema respondiera adecuadamente a las condiciones de alarma. Pero no simula totalmente el prototípo, ya que el simulador tiene un limite en su capacidad, entonces se decidio no implementar el sensor de llama (LM393).
+
+En esta segunda fase del proyecto, se añadió un servidor web embebido dentro del ESP32, el cual permite visualizar el estado actual de los sensores y el historial de datos en un tablero de control accesible desde un navegador web. El ESP32 gestiona la comunicación entre los sensores y el tablero de control mediante peticiones HTTP, sin el uso de MQTT, lo que permite que la visualización y control del sistema se realicen dentro de la WLAN de la alcaldía sin depender de internet externo.
+
+### Justificación
+La implementación de un sistema IoT para la detección temprana de incendios en los cerros orientales de Bogotá es crucial debido a la vulnerabilidad de esta área a los incendios forestales. La capacidad de detectar y notificar la presencia de incendios de manera oportuna puede reducir significativamente los daños ambientales y económicos, así como proteger la vida humana y la fauna local. En esta segunda fase, la integración de un tablero de control web embebido mejora la supervisión y respuesta ante emergencias, ya que permite a las autoridades acceder en tiempo real a los datos de los sensores sin necesidad de hardware adicional. Esto representa un avance significativo en la gestión de desastres naturales y puede servir como modelo para otras regiones con problemas similares, promoviendo el uso de tecnologías avanzadas para la prevención de incendios.
+
+
 # Solución Propuesta
 
 ## Restricciones de Diseño
@@ -36,8 +36,10 @@ La documentación de este proyecto se estructura de la siguiente manera:
 ### Restricciones Técnicas
 La selección de componentes se basa en la disponibilidad local (entregados y disponibles en el kit) y la compatibilidad con el microcontrolador ESP32. Se utilizarán sensores de temperatura (DS18B20) y de gases (MQ-2), así como actuadores como el buzzer y el LED RGB. Dado que en los cerros orientales puede haber áreas con acceso limitado a la red eléctrica y de comunicaciones, el sistema debe ser eficiente en el consumo de energía y capaz de operar de manera autónoma con baterías o paneles solares. Sin embargo, el prototipo estará restringido a funcionar conectado al voltaje de una laptop. Además, sin una red de comunicaciones, la notificación efectiva a las autoridades es una restricción que evita una solución óptima para la necesidad. A nivel del prototípado, el simulador Wokwi (Simulador para la ESP-32), tenia varias restricciones en cuanto a carga y sensores (MQ-2 y LM393)
 
+Para la segunda fase, se añadieron restricciones en la implementación del servidor web embebido, donde el ESP32 debe gestionar las solicitudes HTTP sin afectar el rendimiento de la lectura de sensores. La medición se debe ejecutar desde un ISR o hilo separado del hilo principal, asegurando una ejecución estable y eficiente. Además, la conectividad debe limitarse a la WLAN local de la alcaldía, sin dependencia de internet externo.
+
 ### Restricciones Económicas
-El proyecto debe ajustarse a un presupuesto limitado, priorizando componentes de bajo costo y alta disponibilidad. Esto es crucial debido a la cantidad de dispositivos inteligentes que habría que implementar a lo largo de los cerros y la limitación de ser un proyecto universitario.
+El proyecto debe ajustarse a un presupuesto limitado, priorizando componentes de bajo costo y alta disponibilidad. Esto es crucial debido a la cantidad de dispositivos inteligentes que habría que implementar a lo largo de los cerros y la limitación de ser un proyecto universitario. El servidor web embebido en el ESP32 permite reducir costos al eliminar la necesidad de servidores externos o módulos adicionales de comunicación.
 
 ### Restricciones Regulatorias
 Los cerros orientales de Bogotá están protegidos bajo la Resolución 076 de 1977 del Ministerio de Agricultura y la Resolución 1141 de 2006 de la Corporación Autónoma Regional de Cundinamarca (CAR). Estas normativas establecen restricciones sobre el uso del suelo y la conservación de la flora y fauna, lo que implica que cualquier instalación debe minimizar el impacto ambiental. Además, la Resolución 463 de 2005 del Ministerio de Ambiente, Vivienda y Desarrollo Territorial establece la zonificación y reglamentación de usos en los cerros orientales, incluyendo áreas de recuperación ambiental y zonas de ocupación pública prioritaria, donde se deben seguir estrictas directrices para la instalación de cualquier infraestructura.
@@ -46,10 +48,10 @@ Los cerros orientales de Bogotá están protegidos bajo la Resolución 076 de 19
 Los dispositivos deben ser instalados en ubicaciones estratégicas que maximicen la cobertura de monitoreo sin interferir con el ecosistema local. Esto implica un diseño compacto y discreto para minimizar el impacto visual y físico. Las ubicaciones seleccionadas deben ser accesibles para el mantenimiento y la supervisión periódica, considerando la topografía y las condiciones del terreno. Además, estos dispositivos tendrán que soportar las condiciones ambientales y climáticas del terreno.
 
 ### Restricciones de Escalabilidad
-El diseño debe permitir la adición de más sensores y actuadores en el futuro sin requerir una reestructuración completa del sistema. Esto asegura que el sistema pueda expandirse para cubrir áreas adicionales o incorporar nuevas tecnologías. Además, el sistema debe ser compatible con otros dispositivos y plataformas de monitoreo ambiental, facilitando la integración con sistemas existentes y futuros. Debido a las restricciones técnicas mencionadas anteriormente, este proyecto tiene una restricción de estabilidad que impide mejorar a una solución óptima.
+El diseño debe permitir la adición de más sensores y actuadores en el futuro sin requerir una reestructuración completa del sistema. Esto asegura que el sistema pueda expandirse para cubrir áreas adicionales o incorporar nuevas tecnologías. Además, el sistema debe ser compatible con otros dispositivos y plataformas de monitoreo ambiental, facilitando la integración con sistemas existentes y futuros.
 
 ### Restricciones Temporales
-El proyecto debe estar completamente implementado y funcional para la fecha de presentación (18/02/25). Esto requiere una planificación detallada y una ejecución eficiente de todas las etapas del proyecto. Se debe reservar tiempo suficiente para realizar pruebas exhaustivas y validar el funcionamiento del sistema en condiciones reales, asegurando que cumple con los requisitos y restricciones establecidos.
+El proyecto debe estar completamente implementado y funcional para la fecha de presentación (25/03/25). Esto requiere una planificación detallada y una ejecución eficiente de todas las etapas del proyecto, incluyendo el desarrollo del servidor web embebido y la optimización del código para asegurar un rendimiento estable.
 
 Con estas restricciones claramente definidas, podemos proceder a detallar la arquitectura propuesta, los diagramas y los estándares de diseño aplicados.
 
