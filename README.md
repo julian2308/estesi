@@ -145,7 +145,7 @@ Este sistema es ideal para la **detección temprana de incendios forestales o en
 ✅ Identificar **aumento de partículas en el aire** (indicio de humo).  
 ✅ Detectar **incrementos peligrosos de temperatura**.  
 ✅ Confirmar la **presencia de una llama**.  
-✅ **Activar una alarma** en sitio de forma remota para alertar sobre el peligro.
+✅ Conexión y visualiación únicamente para las personas conectas a la red autorizada.
 
 
 
