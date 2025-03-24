@@ -126,6 +126,27 @@ La carpeta `/IoT Challenge (1)` contiene los archivos necesarios para la simulac
 ## Esquematico y Conexiones de Hardware en Wokwi
 <img width="468" alt="image" src="https://github.com/user-attachments/assets/61ca2c58-59bb-4155-bd72-15384eb7f414" />
 
+## Despliegue servidor web
+
+Este proyecto permite el monitoreo en tiempo real de **partículas en el aire, temperatura y presencia de llama** para la detección temprana de incendios. Utiliza un **ESP32 conectado a WiFi**, permitiendo el acceso remoto a los datos y la **activación o desactivación de una alarma en sitio** desde una interfaz web.  
+
+### ¿Cómo funciona?  
+El ESP32 recopila datos de los sensores y los muestra en una página web accesible desde cualquier dispositivo conectado a la misma red. Además, mantiene un **historial de las últimas cinco mediciones** para facilitar el seguimiento de cambios en el ambiente.  
+
+### Interfaz web y control de alarma  
+La interfaz web incluye:  
+✔️ **Visualización en tiempo real** de las mediciones de partículas, temperatura y detección de llama.  
+✔️ **Historial de mediciones** de cada variable.  
+✔️ **Botón para activar o desactivar la alarma en sitio** en caso de detectar un posible incendio.  
+✔️ **Actualización automática cada 2 segundos**, sin necesidad de recargar la página.  
+
+## ¿Para qué sirve?  
+Este sistema es ideal para la **detección temprana de incendios forestales o en zonas de riesgo**, ya que permite:  
+✅ Identificar **aumento de partículas en el aire** (indicio de humo).  
+✅ Detectar **incrementos peligrosos de temperatura**.  
+✅ Confirmar la **presencia de una llama**.  
+✅ **Activar una alarma** en sitio de forma remota para alertar sobre el peligro.
+
 
 
 # Autoevaluación del protocolo de pruebas
