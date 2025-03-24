@@ -97,7 +97,7 @@ Para las alarmas visuales y sonoras, se ha optado por utilizar un buzzer y un LE
 **Visualización de Datos**:
 La visualización de los datos se realiza mediante una pantalla LCD, que muestra la temperatura en tiempo real y mensajes de alerta. La pantalla LCD es controlada por el ESP32 y se actualiza continuamente con los datos de los sensores, proporcionando información clara y precisa sobre las condiciones ambientales. En la segunda fase, además de la pantalla LCD, se implementó un tablero de control web, alojado en un servidor embebido en el ESP32, donde se presentan en tiempo real los valores de los sensores y un historial reciente de mediciones.
 
-**Tablero de Control Web:**:
+**Tablero de Control Web:**
 En la segunda fase del proyecto, se incorporó un servidor web embebido en el ESP32 para alojar un tablero de control accesible desde dispositivos conectados a la WLAN local. El diseño del tablero permite visualizar las lecturas actuales de temperatura, concentración de gases y detección de llamas, además de almacenar un historial reciente para análisis de tendencias. Además, se integró una función que permite desactivar remotamente las alarmas mediante una interfaz gráfica, mejorando la gestión de emergencias.
 
 
@@ -107,10 +107,10 @@ En la segunda fase del proyecto, se incorporó un servidor web embebido en el ES
 
 Figura 3. Diagrama de UML de la Solución y de Cada Módulo Software Desarrollado del Detector de Incendios.
 
-## Diagrma de Actividad UML
-<img width="468" alt="image" src="https://github.com/user-attachments/assets/3401ac5c-741a-4d87-81ac-e4b82f0895c1" />
+## Diagrma de Secuencia UML
+<img width="768" alt="image" src="https://github.com/user-attachments/assets/f06bf171-9258-4937-8d60-e02316d99af6" />
 
-Figura 4. Diagrama de Actividad UML para los Procesos del Detector de Incendios.
+Figura 4. Diagrama de Secuencia UML para los Procesos del Detector de Incendios.
 
 ## Simulación en Wokwi
 
