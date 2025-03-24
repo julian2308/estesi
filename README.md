@@ -57,16 +57,23 @@ Con estas restricciones claramente definidas, podemos proceder a detallar la arq
 
 # Diseño
 
-Se propone utilizar un Sistema Embebido como la ESP32 utilizando sensores de temperatura, humo, llama y gases como el Monóxido de Carbono o el Dióxido de Carbono para realizar la apropiada identificación en casos de incendio.Por otro lado, para emitir la alarma de incendio se utilizaran de actuadores un LED RGB que indican el nivel de peligro según el aumento de temperatura o la presencia de gases combustibles, una pantalla LCD la cual mostrara el nivel de emergencia y además una buzzer pasivo que emitira una alarma en caso de incendio. A continuación se mostrara el diseño planteado:  
+Se propone utilizar un sistema embebido basado en ESP32, equipado con sensores de temperatura (DS18B20), humo y gases inflamables (MQ-2), y detección de llama (LM393), para la identificación precisa de posibles incendios en tiempo real. Este sistema no solo permite la detección temprana de incendios mediante la monitorización de parámetros ambientales críticos, sino que también facilita la notificación inmediata a las autoridades locales a través de múltiples medios de alerta.
+
+Para la emisión de alarmas, se integran actuadores como un LED RGB, que indica el nivel de peligro según el aumento de temperatura o la presencia de gases combustibles, un buzzer pasivo para alertas sonoras y una pantalla LCD que muestra el estado del sistema y los niveles de emergencia detectados.
+
+En esta segunda fase del proyecto, se ha incorporado un servidor web embebido en el ESP32, lo que permite visualizar el estado de los sensores y consultar el historial de datos en un tablero de control accesible desde un navegador web. La comunicación entre el ESP32 y la interfaz web se realiza mediante peticiones HTTP, eliminando la necesidad de un servidor externo o protocolos como MQTT. Gracias a este enfoque, el sistema opera dentro de la red WiFi local de la alcaldía, garantizando la accesibilidad en tiempo real sin depender de una conexión a internet.
+
+A continuación, se presentan los diagramas necesarios de diseño:
 
 ## Arquitectura 
 ### Hardware
-<img width="468" alt="image" src="https://github.com/user-attachments/assets/36086f94-e6a8-4206-ba02-f1a6913d0d03" />
+<img width="520" alt="image" src="https://github.com/user-attachments/assets/325f607d-5bc1-401f-9a2b-ede028a12507" />
+
 
 Figura 1. Diseño de Arquitectura de Hardware del Detector de Incendios.
 
 ### Software
-<img width="468" alt="image" src="https://github.com/user-attachments/assets/c1756fbc-5960-4e40-880d-2a693fc56872" />
+<img width="573" alt="image" src="https://github.com/user-attachments/assets/2f8f05f2-be93-4122-bbae-85eb12198f33" />
 
 Figura 2. Diseño de Arquitectura de Software del Detector de Incendios.
 
@@ -75,19 +82,24 @@ Figura 2. Diseño de Arquitectura de Software del Detector de Incendios.
 ### Criterios de Diseño Establecidos
 
 **Detección de Gases**:
-Para la detección de gases, se ha seleccionado el sensor MQ-2 debido a su capacidad para identificar una variedad de gases, incluyendo el monóxido de carbono (CO) y el dióxido de carbono (CO₂), que son indicadores clave de combustión. Este sensor es económico y ampliamente disponible, lo que lo hace ideal para el proyecto. Se ha establecido un umbral de detección basado en pruebas preliminares y datos de referencia. Un valor de lectura superior a 600 indica la presencia de gases en niveles que podrían sugerir un incendio.
+Para la detección de gases, se ha seleccionado el sensor MQ-2 debido a su capacidad para identificar una variedad de gases, incluyendo el monóxido de carbono (CO) y el dióxido de carbono (CO₂), que son indicadores clave de combustión. Este sensor es económico y ampliamente disponible, lo que lo hace ideal para el proyecto. Se ha establecido un umbral de detección basado en pruebas preliminares y datos de referencia. Un valor de lectura superior a 600 indica la presencia de gases en niveles que podrían sugerir un incendio. 
 
 **Detección de Temperatura**:
 La medición de la temperatura ambiente se realiza mediante el sensor DS18B20, seleccionado por su precisión y facilidad de uso. Este sensor proporciona lecturas de temperatura con una precisión de ±0.5°C. Se ha definido un umbral de incremento de temperatura de 5°C en un corto período de tiempo como indicador de un posible incendio. Este umbral se basa en la variabilidad normal de la temperatura en los cerros orientales y en la necesidad de detectar incrementos significativos que puedan sugerir la presencia de fuego.
 
 **Detección de Llamas**:
-Para la detección de llamas, se ha incorporado el sensor de llama LM393. Este sensor es capaz de detectar la presencia de llamas mediante la captura de la radiación infrarroja emitida por el fuego. Se ha configurado el sensor para que detecte llamas cuando la salida digital es baja (valor 0), lo que indica la presencia de fuego.
+Para la detección de llamas, se ha incorporado el sensor de llama LM393. Este sensor es capaz de detectar la presencia de llamas mediante la captura de la radiación infrarroja emitida por el fuego. Se ha configurado el sensor para que detecte llamas cuando la salida digital es baja (valor 0), lo que indica la presencia de fuego. 
 
 **Alarmas Visuales y Sonoras**:
-Para las alarmas visuales y sonoras, se ha optado por utilizar un buzzer y un LED RGB. El buzzer emite una alarma sonora en caso de detección de incendio, siendo controlado por el ESP32 y activado cuando se detecta un incremento significativo en la temperatura, la presencia de gases o llamas. El LED RGB proporciona una señal visual de alerta, cambiando de color según las condiciones detectadas: rojo para la presencia de gases o llamas, amarillo para un incremento de temperatura y verde para condiciones normales.
+Para las alarmas visuales y sonoras, se ha optado por utilizar un buzzer y un LED RGB. El buzzer emite una alarma sonora en caso de detección de incendio, siendo controlado por el ESP32 y activado cuando se detecta un incremento significativo en la temperatura, la presencia de gases o llamas. El LED RGB proporciona una señal visual de alerta, cambiando de color según las condiciones detectadas: rojo para la presencia de gases o llamas, amarillo para un incremento de temperatura y verde para condiciones normales. En la segunda fase, se añadió la capacidad de desactivar remotamente las alarmas desde el tablero de control, permitiendo a las autoridades gestionar las alertas de manera centralizada.
+
 
 **Visualización de Datos**:
-La visualización de los datos se realiza mediante una pantalla LCD, que muestra la temperatura en tiempo real y mensajes de alerta. La pantalla LCD es controlada por el ESP32 y se actualiza continuamente con los datos de los sensores, proporcionando información clara y precisa sobre las condiciones ambientales.
+La visualización de los datos se realiza mediante una pantalla LCD, que muestra la temperatura en tiempo real y mensajes de alerta. La pantalla LCD es controlada por el ESP32 y se actualiza continuamente con los datos de los sensores, proporcionando información clara y precisa sobre las condiciones ambientales. En la segunda fase, además de la pantalla LCD, se implementó un tablero de control web, alojado en un servidor embebido en el ESP32, donde se presentan en tiempo real los valores de los sensores y un historial reciente de mediciones.
+
+**Tablero de Control Web:**:
+En la segunda fase del proyecto, se incorporó un servidor web embebido en el ESP32 para alojar un tablero de control accesible desde dispositivos conectados a la WLAN local. El diseño del tablero permite visualizar las lecturas actuales de temperatura, concentración de gases y detección de llamas, además de almacenar un historial reciente para análisis de tendencias. Además, se integró una función que permite desactivar remotamente las alarmas mediante una interfaz gráfica, mejorando la gestión de emergencias.
+
 
 ## Diagrama de UML
 
