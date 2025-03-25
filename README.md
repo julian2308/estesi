@@ -82,23 +82,22 @@ Figura 2. Diseño de Arquitectura de Software del Detector de Incendios.
 ### Criterios de Diseño Establecidos
 
 **Detección de Gases**:
-Para la detección de gases, se ha seleccionado el sensor MQ-2 debido a su capacidad para identificar una variedad de gases, incluyendo el monóxido de carbono (CO) y el dióxido de carbono (CO₂), que son indicadores clave de combustión. Este sensor es económico y ampliamente disponible, lo que lo hace ideal para el proyecto. Se ha establecido un umbral de detección basado en pruebas preliminares y datos de referencia. Un valor de lectura superior a 600 indica la presencia de gases en niveles que podrían sugerir un incendio. 
+Para la detección de gases, se ha seleccionado el sensor MQ-2 debido a su capacidad para identificar una variedad de gases, incluyendo el monóxido de carbono (CO) y el dióxido de carbono (CO₂), que son indicadores clave de combustión. Este sensor es económico y ampliamente disponible, lo que lo hace ideal para el proyecto. Se ha establecido un umbral de lectura superior a 2000, basado en su rango de sensibilidad a concentraciones significativas de humo o gases combustibles (200-10000 ppm) [16], indicando niveles que podrían sugerir un incendio.
 
 **Detección de Temperatura**:
-La medición de la temperatura ambiente se realiza mediante el sensor DS18B20, seleccionado por su precisión y facilidad de uso. Este sensor proporciona lecturas de temperatura con una precisión de ±0.5°C. Se ha definido un umbral de incremento de temperatura de 5°C en un corto período de tiempo como indicador de un posible incendio. Este umbral se basa en la variabilidad normal de la temperatura en los cerros orientales y en la necesidad de detectar incrementos significativos que puedan sugerir la presencia de fuego.
+La medición de la temperatura ambiente se realiza mediante el sensor DS18B20, seleccionado por su precisión y facilidad de uso. Este sensor proporciona lecturas de temperatura con una precisión de ±0.5°C. Se ha definido un umbral fijo de >50°C y un incremento de temperatura de >5°C por minuto como indicadores de un posible incendio [17][18]. Estos valores se basan en estándares de detección de calor y en la necesidad de identificar incrementos significativos en los cerros orientales.
 
 **Detección de Llamas**:
-Para la detección de llamas, se ha incorporado el sensor de llama LM393. Este sensor es capaz de detectar la presencia de llamas mediante la captura de la radiación infrarroja emitida por el fuego. Se ha configurado el sensor para que detecte llamas cuando la salida digital es baja (valor 0), lo que indica la presencia de fuego. 
+Para la detección de llamas, se ha incorporado el sensor de llama LM393. Este sensor detecta la presencia de llamas mediante la captura de radiación infrarroja emitida por el fuego. Se ha configurado una interrupción (ISR) para que detecte llamas cuando la salida digital es baja (valor 0), asegurando una respuesta inmediata [19].
 
 **Alarmas Visuales y Sonoras**:
-Para las alarmas visuales y sonoras, se ha optado por utilizar un buzzer y un LED RGB. El buzzer emite una alarma sonora en caso de detección de incendio, siendo controlado por el ESP32 y activado cuando se detecta un incremento significativo en la temperatura, la presencia de gases o llamas. El LED RGB proporciona una señal visual de alerta, cambiando de color según las condiciones detectadas: rojo para la presencia de gases o llamas, amarillo para un incremento de temperatura y verde para condiciones normales. En la segunda fase, se añadió la capacidad de desactivar remotamente las alarmas desde el tablero de control, permitiendo a las autoridades gestionar las alertas de manera centralizada.
-
+Para las alarmas visuales y sonoras, se ha optado por utilizar un buzzer y un LED RGB. El buzzer emite una alarma sonora en caso de detección de incendio, siendo controlado por el ESP32 y activado cuando se supera un umbral de temperatura (>50°C), gases (>2000) o se detectan llamas por ISR. El LED RGB proporciona una señal visual de alerta, cambiando de color según las condiciones detectadas: rojo para la presencia de gases o llamas, amarillo para un incremento de temperatura y verde para condiciones normales. En la segunda fase, se añadió la capacidad de desactivar remotamente las alarmas desde el tablero de control.
 
 **Visualización de Datos**:
-La visualización de los datos se realiza mediante una pantalla LCD, que muestra la temperatura en tiempo real y mensajes de alerta. La pantalla LCD es controlada por el ESP32 y se actualiza continuamente con los datos de los sensores, proporcionando información clara y precisa sobre las condiciones ambientales. En la segunda fase, además de la pantalla LCD, se implementó un tablero de control web, alojado en un servidor embebido en el ESP32, donde se presentan en tiempo real los valores de los sensores y un historial reciente de mediciones.
+La visualización de los datos se realiza mediante una pantalla LCD, que muestra la temperatura en tiempo real y mensajes de alerta. La pantalla LCD es controlada por el ESP32 y se actualiza continuamente con los datos de los sensores, proporcionando información clara y precisa sobre las condiciones ambientales. En la segunda fase, se implementó un tablero de control web, alojado en un servidor embebido en el ESP32, donde se presentan en tiempo real los valores de los sensores y un historial reciente de mediciones .
 
 **Tablero de Control Web:**
-En la segunda fase del proyecto, se incorporó un servidor web embebido en el ESP32 para alojar un tablero de control accesible desde dispositivos conectados a la WLAN local. El diseño del tablero permite visualizar las lecturas actuales de temperatura, concentración de gases y detección de llamas, además de almacenar un historial reciente para análisis de tendencias. Además, se integró una función que permite desactivar remotamente las alarmas mediante una interfaz gráfica, mejorando la gestión de emergencias.
+En la segunda fase del proyecto, se incorporó un servidor web embebido en el ESP32 para alojar un tablero de control accesible desde dispositivos conectados a la WLAN local. El diseño del tablero permite visualizar las lecturas actuales de temperatura (>50°C), concentración de gases (>2000) y detección de llamas (vía ISR), además de almacenar un historial reciente para análisis de tendencias. También se integró una función que permite desactivar remotamente las alarmas mediante una interfaz gráfica.
 
 
 ## Diagrama de UML
@@ -151,8 +150,11 @@ Conexión y visualiación únicamente para las personas conectas a la red autori
 
 
 # Autoevaluación del protocolo de pruebas
-Dentro del protocolo de pruebas se midieron 2 variables, los gases inflamables presentes en el entorno con ayuda del sensor MQ2, el cual es capaz de detectar concentración de sustancias como el butano y el propano. Además, también se midió la temperatura, en este caso en grados centígrados. 
-Dentro de las pruebas realizadas se tomó en cuenta distintos escenarios, como el aumento repentino de la temperatura leída por el sensor, y el incremento de gases que sobrepasaran la barrera definida. El aumento de temperatura se probó tanto con el encendido de un mechero como soplándole directamente al sensor, lo cual presentó algunos problemas debido a que en ocasiones reconocía bien el aumento de la temperatura y en otras no. Mientras, para la prueba del MQ2 funcionó perfectamente al detectar el aumento de los gases que se generaron con ayuda del encendedor, accionando correctamente los actuadores establecidos.
+Dentro del protocolo de pruebas se midieron varias variables clave para el sistema de detección de incendios. Se evaluó la presencia de gases inflamables en el entorno utilizando el sensor MQ2, el cual es capaz de detectar concentraciones de sustancias como butano y propano. Además, se midió la temperatura en grados centígrados con el sensor DS18B20.
+
+Las pruebas realizadas incluyeron distintos escenarios, como el aumento repentino de la temperatura detectada por el sensor y el incremento de gases que superaran el umbral definido. El aumento de temperatura se probó mediante el encendido de un mechero y también soplando directamente sobre el sensor. Durante estas pruebas, se presentaron algunos problemas, ya que en ciertas ocasiones el sensor reconocía correctamente el aumento de temperatura, mientras que en otras no. Por otro lado, el sensor MQ2 funcionó correctamente al detectar el incremento de gases generados con un encendedor, activando de manera adecuada los actuadores establecidos, como la alerta sonora del buzzer y la señal visual del LED RGB.
+
+Adicionalmente, se verificó la comunicación del ESP32 con el servidor web, asegurando que los datos de temperatura y concentración de gases fueran enviados en tiempo real a la plataforma. Se confirmó que la interfaz web reflejaba correctamente los valores recibidos y permitía visualizar el estado del sistema de manera remota, aunque al comienzo al utilizar estilos y tablas en el front-end nos hizo mucho más complejo la sincronización con la ESP32, se desconoce el porque. Asimismo, se probaron las funcionalidades de control desde la web, garantizando que los comandos enviados para activar o desactivar los actuadores fueran recibidos y ejecutados correctamente por el ESP32.
 
 # Configuración experimental, resultados y análisis.
 
@@ -179,9 +181,11 @@ Con la realización del laboratorio se evidencia cómo los dispositivos IoT pued
 
 
 # Conclusiones y retos.
-Se obtuvo un buen resultado de prototipado, los sensores y actuadores conectado presentaron un correcto funcionamiento, permitiendo así tener un dispositivo IOT que detecta de una forma efectiva distintas variables presentes en incendios, y activando los distintos actuadores en los casos necesarios. Probando su funcionamiento en distintos escenarios, obteniendo mayormente una respuesta positiva. Se encontraron también distintas limitaciones en el desarrollo del reto, como lo son el desconocimiento del uso de los sensores y su funcionamiento, por ejemplo, el sensor MQ2 requiere de un tiempo de precalentamiento para obtener lecturas precisas. Además, el principal factor limitante fue el tiempo y la poca disponibilidad de los materiales, debido a razones externas no se contó con la disponibilidad para realizar la totalidad de las pruebas. Por esto mismo, no fue posible la implementación del sensor de llama, esto a razón de el montaje y desmontaje del prototipo, lo cual provocaba problemas para el uso de los implementos.
+El desarrollo del sistema de detección de incendios basado en ESP32 permitió integrar múltiples sensores y actuadores para la monitorización de gases inflamables y temperatura en tiempo real. A lo largo del proceso, se verificó la correcta funcionalidad de los sensores MQ2 y DS18B20, así como la respuesta adecuada de los actuadores, incluyendo el buzzer, el LED RGB y la pantalla LCD. Además, la implementación del servidor web proporcionó una interfaz remota para la visualización y control del sistema, permitiendo una supervisión eficiente de los datos recopilados.
 
-Para una próxima práctica se espera tener una mayor disponibilidad de los implementos, y de esta forma permitir una mejor implementación para obtener resultados acordes al trabajo realizado.
+Sin embargo, uno de los principales retos enfrentados durante el desarrollo fue la comunicación entre el ESP32 y el servidor web. En varias ocasiones, los datos enviados por el microcontrolador no eran recibidos correctamente en la plataforma, lo que impedía la actualización en tiempo real de la información. Este problema requirió una revisión exhaustiva del protocolo de transmisión, la configuración de la red y la estabilidad de la conexión WiFi. A través de ajustes en la frecuencia de envío de datos, optimización del código de comunicación y pruebas en diferentes redes, se logró mejorar la estabilidad del sistema y asegurar una correcta sincronización entre el ESP32 y el servidor web.
+
+Este proyecto resalta la importancia de contar con sistemas de monitoreo confiables en entornos de alto riesgo. La detección temprana de incendios no solo depende de la precisión de los sensores, sino también de la robustez de la infraestructura de comunicación y la capacidad de respuesta del sistema. A medida que la tecnología avanza, resulta fundamental seguir innovando en soluciones que combinen precisión, rapidez y accesibilidad para prevenir desastres y proteger tanto vidas como recursos.
 
 # Referencias 
 
@@ -212,4 +216,12 @@ Para una próxima práctica se espera tener una mayor disponibilidad de los impl
 [13] Circuit Digest, "16x2 LCD Display Module - Pinout & Datasheet," 2025. [Online]. Available
 
 [15] Wokwi, "MQ-2 Gas Sensor," Wokwi Projects, 2025. [Online]. Available: https://wokwi.com/projects/403412199957957633.
+
+[16] Components101, "MQ2 Gas Sensor Pinout, Features, Equivalents & Datasheet," https://components101.com/sensors/mq2-gas-sensor.
+
+[17] Alarm Grid, "At What Temperature Do Heat Alarms Trigger?" https://www.alarmgrid.com/faq/at-what-temperature-do-heat-alarms-trigger.
+
+[18] Fire Systems, "Exploring the Varied Landscape of Heat Detectors in Building Fire Alarm Systems," https://firesystems.net/2024/02/10/exploring-the-varied-landscape-of-heat-detectors-in-building-fire-alarm-systems/.
+
+[19] Microcontrollers Lab, "IoT Based Fire Detection using ESP32 and Flame Sensor with Email Alert," https://microcontrollerslab.com/iot-fire-detection-esp32-flame-sensor-email-alert/.
 
