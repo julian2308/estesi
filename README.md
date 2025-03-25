@@ -136,10 +136,10 @@ El ESP32 recopila datos de los sensores y los muestra en una página web accesib
 
 ### Interfaz web y control de alarma  
 La interfaz web incluye:  
-✔️ **Visualización en tiempo real** de las mediciones de partículas, temperatura y detección de llama.  
-✔️ **Historial de mediciones** de cada variable.  
-✔️ **Botón para activar o desactivar la alarma en sitio** en caso de detectar un posible incendio.  
-✔️ **Actualización automática cada 2 segundos**, sin necesidad de recargar la página.  
+**Visualización en tiempo real** de las mediciones de partículas, temperatura y detección de llama.  
+**Historial de mediciones** de cada variable.  
+**Botón para activar o desactivar la alarma en sitio** en caso de detectar un posible incendio.  
+**Actualización automática cada 2 segundos**, sin necesidad de recargar la página.  
 
 ## ¿Para qué sirve?  
 Este sistema es ideal para la **detección temprana de incendios forestales o en zonas de riesgo**, ya que permite:  
