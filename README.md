@@ -103,7 +103,8 @@ En la segunda fase del proyecto, se incorporó un servidor web embebido en el ES
 
 ## Diagrama de UML
 
-<img width="468" alt="image" src="https://github.com/user-attachments/assets/80147838-9a35-49ea-8f04-e1e7dff175f0" />
+<img width="660" alt="image" src="https://github.com/user-attachments/assets/85f43dd3-40d7-4841-93c0-5cbd8feaefc0" />
+
 
 Figura 3. Diagrama de UML de la Solución y de Cada Módulo Software Desarrollado del Detector de Incendios.
 
@@ -142,10 +143,10 @@ La interfaz web incluye:
 
 ## ¿Para qué sirve?  
 Este sistema es ideal para la **detección temprana de incendios forestales o en zonas de riesgo**, ya que permite:  
-✅ Identificar **aumento de partículas en el aire** (indicio de humo).  
-✅ Detectar **incrementos peligrosos de temperatura**.  
-✅ Confirmar la **presencia de una llama**.  
-✅ Conexión y visualiación únicamente para las personas conectas a la red autorizada.
+Identificar **aumento de partículas en el aire** (indicio de humo).  
+Detectar **incrementos peligrosos de temperatura**.  
+Confirmar la **presencia de una llama**.  
+Conexión y visualiación únicamente para las personas conectas a la red autorizada.
 
 
 
