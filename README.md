@@ -164,6 +164,9 @@ Figura 5: Foto del montaje del Detector de Incendios.
 ![image](https://github.com/user-attachments/assets/40657e7e-5e57-4167-808d-fa871ef870e3)
 Figura 6: Foto del montaje del Detector de Incendios.
 
+![image](https://github.com/user-attachments/assets/07908d8c-e618-4129-8c87-92d6b0aea450)
+Figura 7: Interfaz grafica del tablero de comando.
+
 Para llevar a cabo la correcta identificación de incendios se hizo uso de:
 
 - Pantalla LCD 16A02
